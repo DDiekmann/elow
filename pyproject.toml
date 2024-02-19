@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "elow"
+version = "0.1.0"
+description = ""
+authors = ["Dennis <dennis.diekmann@uni-oldenburg.de>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.1"
+mypy = "^1.8.0"
+black = "^24.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
