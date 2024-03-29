@@ -15,8 +15,7 @@
   # simpliarly to .gitignore you can also exclude everything and implicitly
   # list files you want included
   src_exclude = [''
-    .vscode
-    README.md
+    
   ''];
 
   lean_python = {
