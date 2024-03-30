@@ -8,7 +8,7 @@
   ];
 
   name = "elow"; # Replace with your project name
-  src = ./elow; # Replace with your project's source directory
+  src = ./.; # Replace with your project's source directory
 
   # files to exclude (there often are files that you need to have in git, but
   # you don't want nix to rebuild your app if they change)
