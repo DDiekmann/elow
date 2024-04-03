@@ -18,9 +18,16 @@
     
   ''];
 
+  lean_python = {
+    enable = true;
+    package = pkgs.python311;
+    expat = true;
+    zlib = true;
+  };
+
   python = {
     enable = true;
-    package = config.python311;
+    package = config.out_lean_python;
     inject_app_env = true;
     prefer_wheels = false;
   };
@@ -29,7 +36,7 @@
     enable = true;
     command = [ "${config.out_python}/bin/hello" ]; # Replace with your project's entrypoint
     layers = with nix2container; [
-      (buildLayer { deps = [ config.out_python ]; })
+      (buildLayer { deps = [ config.out_lean_python ]; })
     ];
   };
 
