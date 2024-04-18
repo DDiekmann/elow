@@ -1,32 +1,26 @@
 #!/usr/bin python3
 
 import os
+import json
 from tools.sheetsapi import SheetsAPI
 from tools import tournamenttools
 
 from rich import print
 from rich.prompt import Prompt, Confirm
 
-ELO_PATH = os.path.join(os.path.dirname(__file__), "Elo")
+print("Welcome to the tournament manager!")
 
-TYPE_LIBRARY = {
-    "Canlander23": "Canlander Stats",
-    "Canlander24": "Canlander Stats",
-    "CanlanderEndless": "Canlander Stats",
-}
-
-YEAR_TYPE = {
-    "Canlander23": "23",
-    "Canlander24": "24",
-}
+with open(os.path.join(os.path.dirname(__file__), "tools", "settings.json"), "r") as f:
+    settings = json.load(f)
+    TYPE_LIBRARY = settings["type"]
+    YEAR_TYPE = settings["year"]
+    ELO_PATH = os.path.join(os.path.dirname(__file__), settings["elo_path"])
 
 if not os.path.exists(ELO_PATH):
     os.makedirs(ELO_PATH)
 for key in TYPE_LIBRARY.keys():
     if not os.path.exists(os.path.join(ELO_PATH, key)):
         os.makedirs(os.path.join(ELO_PATH, key))
-
-print("Welcome to the tournament manager!")
 
 automatic = Confirm.ask("Do you want to run all tournaments automatically?")
 

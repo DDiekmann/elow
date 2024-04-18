@@ -1,4 +1,6 @@
 credentials.json
+settings.json
+
 Elo/*
 !Elo/.gitkeep
 
