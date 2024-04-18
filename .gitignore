@@ -200,5 +200,4 @@ pyrightconfig.json
 .history
 .ionide
 
-flake.lock
 poetry.lock
